@@ -357,7 +357,9 @@ namespace ChessChallenge.Application
                 PlayerWhite.Update();
                 PlayerBlack.Update();
 
+                #if !DEBUG
                 PlayerToMove.UpdateClock(Raylib.GetFrameTime());
+                #endif
                 if (PlayerToMove.TimeRemainingMs <= 0)
                 {
                     EndGame(PlayerToMove == PlayerWhite ? GameResult.WhiteTimeout : GameResult.BlackTimeout);
